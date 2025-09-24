@@ -1,0 +1,7 @@
+image:
+  repository: <account_id>.dkr.ecr.ap-south-1.amazonaws.com/hello-world
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 80

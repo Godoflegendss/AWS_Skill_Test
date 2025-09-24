@@ -1,0 +1,12 @@
+From python:3.11-slim
+
+WORKDIR /hello-world
+
+COPY hello-world/requirement.txt /hello-world/requirement.txt
+RUN pip install --no-cache-dir -r /hello-world/requirement.txt
+
+COPY hello-world /hello-world
+
+EXPOSE 8000
+
+CMD [ "python","app.py" ]
