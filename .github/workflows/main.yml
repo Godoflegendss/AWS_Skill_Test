@@ -49,7 +49,7 @@ jobs:
 
       # 5. Apply Terraform in non-prod
       - name: Terraform Apply (non-prod)
-        run: terraform -chdir=terraform apply -auto-approve -var="env=nonprod"
+        run: terraform -chdir=terraform apply -auto-approve
 
       # 6. Deploy to EKS with Helm
       - name: Configure kubectl
