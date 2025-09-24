@@ -42,6 +42,7 @@ jobs:
       - name: Login to ECR
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build & Push
+        working-directory: hello_world
         run: |
           IMAGE_TAG=latest
           docker build -t ${{ secrets.ECR_REPO }}:$IMAGE_TAG .
