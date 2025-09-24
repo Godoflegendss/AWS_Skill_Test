@@ -95,6 +95,7 @@ resource "aws_eks_node_group" "ng2" {
 
 data "aws_eks_cluster_auth" "cluster" {
     name=aws_eks_cluster.this.name
+    depends_on = [ aws_eks_cluster.this.name ]
   
 }
 
