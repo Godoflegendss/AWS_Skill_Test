@@ -29,7 +29,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_subnet" "private" {
     count = length(var.private_subnet_cidrs)
-    vpc_id = aws_vpc.main
+    vpc_id = aws_vpc.main.id
     availability_zone = var.aws_av_region[count.index]
     cidr_block = var.private_subnet_cidrs[count.index]
     tags = {Name="${var.cluster_name}-private-${count.index+1}"}
