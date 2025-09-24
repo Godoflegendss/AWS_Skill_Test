@@ -1,5 +1,5 @@
 image:
-  repository: <account_id>.dkr.ecr.ap-south-1.amazonaws.com/hello-world
+  repository: <account_id>.dkr.ecr.ap-south-1.amazonaws.com/hello_world
   tag: latest
 
 service:

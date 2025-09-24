@@ -22,7 +22,7 @@ jobs:
 
       # 2. Python lint + test
       - name: Install Python deps
-        run: pip install -r hello-world/requirements.txt pytest flake8
+        run: pip install -r hello_world/requirements.txt pytest flake8
       - name: Run lint
         run: flake8 .
       - name: Run unit tests
@@ -55,7 +55,7 @@ jobs:
           aws eks update-kubeconfig --region ap-south-1 --name ${{ secrets.EKS_CLUSTER }}
       - name: Deploy with Helm
         run: |
-          helm upgrade --install hello-world ./helm \
+          helm upgrade --install hello_world ./helm \
             --set image.repository=${{ secrets.ECR_REPO }} \
             --set image.tag=latest
 
