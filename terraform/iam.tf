@@ -1,13 +1,13 @@
 resource "aws_iam_role" "app_role" {
     name = "${var.cluster_name}-app-role"
     assume_role_policy = jsonencode({
-        version="2012-10-17"
-        statement=[{
+        Version="2012-10-17"
+        Statement=[{
             Effect="Allow"
-            principals={
+            Principal={
                 Service="ecs-tasks.amazonaws.com"
-                action="sts:AssumeRole"
             }
+            Action="sts:AssumeRole"
         }]
     })
   
@@ -16,18 +16,18 @@ resource "aws_iam_role" "app_role" {
 resource "aws_iam_policy" "app_policy" {
     name="${var.cluster_name}-app-policy"
     policy = jsonencode({
-        version="2012-10-17"
-        statement=[{
+        Version="2012-10-17"
+        Statement=[{
             Effect="Allow"
-            action=[
+            Action=[
                 "s3:GetObject",
                 "s3:PutObject",
-                "s3:ListObject"
+                "s3:ListBucket"
             ]
         }]
         resource=[
             aws_s3_bucket.static.arn,
-            "${aws_s3_bucket.static.arn}/*"        ]
+            "${aws_s3_bucket.static.arn}/*"]
     })
   
 }

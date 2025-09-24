@@ -23,11 +23,11 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSclusterPolicy" {
 resource "aws_iam_role" "eks_node_role" {
     name = "${var.cluster_name}-node-role"
     assume_role_policy = jsonencode({
-        version="2012-10-17"
-        statement=[{
-            action="sts:Assumerole"
+        Version="2012-10-17"
+        Statement=[{
+            Action="sts:AssumeRole"
             Effect="Allow"
-            principals={Service="ec2.amazonaws.com"}
+            Principal={Service="ec2.amazonaws.com"}
         }]
     })
   
@@ -95,6 +95,7 @@ resource "aws_eks_node_group" "ng2" {
 
 data "aws_eks_cluster_auth" "cluster" {
     name=aws_eks_cluster.this.name
+    depends_on = [ aws_eks_cluster.this ]
   
 }
 

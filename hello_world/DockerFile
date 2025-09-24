@@ -2,8 +2,8 @@ From python:3.11-slim
 
 WORKDIR /hello_world
 
-COPY hello_world/requirement.txt /hello_world/requirement.txt
-RUN pip install --no-cache-dir -r /hello_world/requirement.txt
+COPY hello_world/requirements.txt /hello_world/requirements.txt
+RUN pip install --no-cache-dir -r /hello_world/requirements.txt
 
 COPY hello_world /hello_world
 
