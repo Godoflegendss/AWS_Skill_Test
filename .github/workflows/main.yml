@@ -26,6 +26,7 @@ jobs:
       - name: Run lint
         run: flake8 .
       - name: Run unit tests
+        working-directory: hello_world
         run: pytest
 
       # 3. Terraform validate
