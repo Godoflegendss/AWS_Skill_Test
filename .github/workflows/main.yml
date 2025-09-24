@@ -22,7 +22,7 @@ jobs:
 
       # 2. Python lint + test
       - name: Install Python deps
-        run: pip install -r requirements.txt pytest flake8
+        run: pip install -r hello-world/requirements.txt pytest flake8
       - name: Run lint
         run: flake8 .
       - name: Run unit tests
