@@ -22,7 +22,7 @@ variable "public_subnet_cidrs" {
 
 variable "private_subnet_cidrs" {
   type    = list(string)
-  default = ["10.1.1.0/24", "10.1.2.0/24"]
+  default = ["10.0.100.0/24", "10.0.101.0/24"]
 }
 
 variable "cluster_name" {
