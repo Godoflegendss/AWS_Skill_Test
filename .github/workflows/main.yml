@@ -26,9 +26,10 @@ jobs:
       - name: Run lint
         run: flake8 .
       - name: Run unit tests
-        working-directory: hello_world
-        run: pytest
-
+        run: |
+          export PYTHONPATH=$PYTHONPATH:./hello_world
+          pytest hello_world/tests
+      
       # 3. Terraform validate
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
